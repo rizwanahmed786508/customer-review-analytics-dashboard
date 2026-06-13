@@ -41,21 +41,6 @@
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)
 ![Last Commit](https://img.shields.io/github/last-commit/rizwan-ahmed/customer-review-analytics?style=flat-square&color=purple)
 
-<br/>
-
----
-
-**[🚀 Live Demo](#-live-demo)** &nbsp;•&nbsp;
-**[📖 Documentation](#-project-overview)** &nbsp;•&nbsp;
-**[⚙️ Installation](#-installation-guide)** &nbsp;•&nbsp;
-**[📊 Results](#-model-performance)** &nbsp;•&nbsp;
-**[👤 Author](#-author)**
-
----
-
-</div>
-
-<br/>
 
 
 ## 🔬 Project Overview
@@ -334,12 +319,8 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 | 9 | brilliant | 7,900 | horrible | 6,900 |
 | 10 | superb | 7,500 | pointless | 6,500 |
 
-</div>
-
-
-# 📁 Project Structure & ⚙️ Installation Guide
  
-<br/>
+
 ## 📁 Project Structure
  
 ```
