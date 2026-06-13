@@ -337,49 +337,128 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 </div>
 
 
-## 📂 Project Structure
-
-
+# 📁 Project Structure & ⚙️ Installation Guide
+ 
+<br/>
+## 📁 Project Structure
+ 
+```
 customer-review-analytics/
 │
-├── app.py
-├── customer-review-analytics-model
-├
-├── requirements.txt
-├── README.md
+├── 📓 customer-review-analytics-model.ipynb   ← Training notebook (EDA + ML pipeline)
+├── 🚀 sentiscope_app.py                        ← Main Streamlit application
 │
-├── data/
-│   └── dataset.csv
+├── 🧠 models/
+│   ├── sentiment_model.pkl                     ← Serialised Logistic Regression model
+│   └── tfidf_vectorizer.pkl                    ← Fitted TF-IDF vectoriser
 │
-├── images/
-│   ├── dashboard.png
-│   ├── confusion_matrix.png
-│   └── feature_importance.png
+├── 📸 screenshots/                             ← Dashboard screenshots
+│   ├── home.png
+│   ├── prediction.png
+│   ├── feature_importance.png
+│   ├── explainability.png
+│   ├── performance.png
+│   └── insights.png
 │
-└── models/
-    └── credit_score.pkl
-
-
-
-## 🚀 Installation & Usage
-
-### Clone Repository
-
-git clone https://github.com/rizwanahmed786508/customer-review-analytics.git
-cd credit-scoring-system
-
-
-### Install Dependencies
-
-
-pip install -r requirements.txt
-
-
-### Run Streamlit App
-
-streamlit run app.py
-
+├── 📊 data/
+│   └── imdb_dataset.csv                        ← 50,000 IMDb reviews + labels
+│
+├── 📋 requirements.txt                         ← Python dependencies
+├── 📄 README.md                                ← Project documentation
+└── ⚖️  LICENSE                                 ← MIT License
+```
+ 
 ---
+ 
+## 💻 Installation Guide
+ 
+### Prerequisites
+ 
+```
+Python >= 3.8   (tested up to Python 3.14)
+pip    >= 21.0
+```
+ 
+### Step 1 — Clone the Repository
+ 
+```bash
+git clone https://github.com/your-username/customer-review-analytics.git
+cd customer-review-analytics
+```
+ 
+### Step 2 — Create Virtual Environment *(Recommended)*
+ 
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+ 
+# macOS / Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+ 
+### Step 3 — Install Dependencies
+ 
+```bash
+pip install -r requirements.txt
+```
+ 
+Or install manually:
+ 
+```bash
+pip install streamlit scikit-learn pandas numpy matplotlib wordcloud joblib
+```
+ 
+### Step 4 — Verify Model Files
+ 
+Make sure both `.pkl` files are in the project root:
+ 
+```bash
+# Windows
+dir *.pkl
+ 
+# macOS / Linux
+ls *.pkl
+ 
+# Expected output:
+# sentiment_model.pkl     tfidf_vectorizer.pkl
+```
+ 
+> ⚠️ If the `.pkl` files are missing, run the training notebook first — see **Step 6** below.
+ 
+### Step 5 — Launch the Dashboard
+ 
+```bash
+streamlit run sentiscope_app.py
+```
+ 
+The app opens automatically at → **`http://localhost:8501`**
+ 
+### Step 6 — (Optional) Retrain the Model
+ 
+To reproduce the full training pipeline from scratch:
+ 
+```bash
+jupyter notebook customer-review-analytics-model.ipynb
+```
+ 
+Run all cells sequentially. Model artefacts (`sentiment_model.pkl`, `tfidf_vectorizer.pkl`) are saved automatically via `joblib.dump()`.
+ 
+---
+ 
+## 📖 Usage Guide
+ 
+### ✍️ Running a Live Prediction
+ 
+1. Open the app and go to **✍️ Prediction** in the sidebar
+2. Paste or type any movie review in the text box
+3. Click **⚡ Analyse Sentiment**
+4. View:
+   - **Sentiment label** — Positive 😊 or Negative 😞
+   - **Confidence score** — model certainty in %
+   - **Confidence bar** — visual representation
+   - **Token preview** — preprocessed words sent to the model
 ## 🔮 Future Improvements
 
 | Priority | Enhancement | Technical Approach |
