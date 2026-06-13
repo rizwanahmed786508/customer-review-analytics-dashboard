@@ -335,58 +335,27 @@ customer-review-analytics/
  
 ## 💻 Installation Guide
  
-### Prerequisites
- 
-```
-Python >= 3.8   (tested up to Python 3.14)
-pip    >= 21.0
-```
- 
-### Step 1 — Clone the Repository
- 
+
+### Clone Repository
+
 ```bash
-git clone https://github.com/your-username/customer-review-analytics.git
-cd customer-review-analytics
+git clone https://github.com/rizwanahmed786508/customer-review-analytics.git
+cd credit-scoring-system
 ```
- 
-### Step 2 — Create Virtual Environment *(Recommended)*
- 
-```bash
-# Windows
-python -m venv venv
-venv\Scripts\activate
- 
-# macOS / Linux
-python3 -m venv venv
-source venv/bin/activate
-```
- 
-### Step 3 — Install Dependencies
- 
+
+### Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
- 
-Or install manually:
- 
+
+### Run Streamlit App
+
 ```bash
-pip install streamlit scikit-learn pandas numpy matplotlib wordcloud joblib
+streamlit run app.py
 ```
- 
-### Step 4 — Verify Model Files
- 
-Make sure both `.pkl` files are in the project root:
- 
-```bash
-# Windows
-dir *.pkl
- 
-# macOS / Linux
-ls *.pkl
- 
-# Expected output:
-# sentiment_model.pkl     tfidf_vectorizer.pkl
-```
+
+---
  
 > ⚠️ If the `.pkl` files are missing, run the training notebook first — see **Step 6** below.
  
