@@ -169,9 +169,6 @@ This project addresses both challenges: **accurate automated sentiment classific
 | 🌐 Streamlit Cloud | [Launch Application](https://your-app-name.streamlit.app) | 🟡 Deploy & update link |
 | 🐙 GitHub Repository | [View Source Code](https://github.com/rizwanahmed86508/customer-review-analytics) | ✅ Available |
 
-> 💡 **To deploy on Streamlit Cloud:** Push your repository to GitHub, visit [share.streamlit.io](https://share.streamlit.io), connect your repo, and set `sentiscope_app.py` as the entry point.
-
-
 ---
 
 ## 📂 Dataset Description
