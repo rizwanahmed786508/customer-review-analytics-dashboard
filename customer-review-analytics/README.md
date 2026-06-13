@@ -444,9 +444,6 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 
-See [LICENSE](LICENSE) for full text.
-
-
 <br/>
 
 **[🔝 Back to Top](#-customer-review-analytics--sentiment-analysis-dashboard)**
