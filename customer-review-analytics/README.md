@@ -339,7 +339,7 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 
 ## 📂 Project Structure
 
-```text
+
 customer-review-analytics/
 │
 ├── app.py
@@ -358,30 +358,26 @@ customer-review-analytics/
 │
 └── models/
     └── credit_score.pkl
-```
 
----
+
 
 ## 🚀 Installation & Usage
 
 ### Clone Repository
 
-```bash
-git clone https://github.com/rizwanahmed786508/credit-scoring-system.git
+git clone https://github.com/rizwanahmed786508/customer-review-analytics.git
 cd credit-scoring-system
-```
+
 
 ### Install Dependencies
 
-```bash
+
 pip install -r requirements.txt
-```
+
 
 ### Run Streamlit App
 
-```bash
 streamlit run app.py
-```
 
 ---
 ## 🔮 Future Improvements
