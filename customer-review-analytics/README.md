@@ -142,10 +142,9 @@ This project addresses both challenges: **accurate automated sentiment classific
 <td width="50%">
 
 ### 🤖 Machine Learning
-- Multi-model comparison (LR, SVM, RF)
+- Multi-model comparison (LR, SVM)
 - TF-IDF vectorisation (5,000 features)
 - 80/20 stratified train-test split
-- Serialised model artefacts for reproducibility
 - Real-time inference on new review text
 
 </td>
@@ -188,9 +187,6 @@ This project addresses both challenges: **accurate automated sentiment classific
 
 ## 📸 Application Screenshots
 
-> **Note:** Replace the placeholder images below with actual screenshots of your running application.
-
-<br/>
 
 <div align="center">
 
@@ -202,37 +198,30 @@ Replace this block with: ![Home Page](screenshots/home.png)
 
 ### ✍️ Prediction — Live Sentiment Analysis
 ```
-[ Screenshot: Prediction Page — Text input, result card, confidence bar, token preview ]
-Replace this block with: ![Prediction Page](screenshots/prediction.png)
+ ![Prediction Page](images/prediction.png)
 ```
 
 ### 📈 Feature Importance — LR Coefficient Analysis
 ```
-[ Screenshot: Feature Importance — Positive/Negative coefficient bar charts ]
-Replace this block with: ![Feature Importance](screenshots/feature_importance.png)
+ ![Feature Importance](images/feature_importance.png)
 ```
 
 ### 🔍 Explainability — Token-Level Contribution Analysis
 ```
-[ Screenshot: Explainability — Per-token contribution chart and breakdown table ]
-Replace this block with: ![Explainability](screenshots/explainability.png)
+ ![Explainability](images/explainability.png)
 ```
 
 ### 🤖 Model Performance — Evaluation Metrics
 ```
-[ Screenshot: Performance Page — Accuracy bars, confusion matrix, classification report ]
-Replace this block with: ![Model Performance](screenshots/performance.png)
+ ![Model Performance](images/performance.png)
 ```
 
 ### ☁️ Insights — Word Clouds & Frequency Analysis
 ```
-[ Screenshot: Insights Page — Positive/Negative word clouds, top-word bar charts ]
-Replace this block with: ![Insights](screenshots/insights.png)
+ ![Insights](images/insights.png)
 ```
 
-</div>
 
-> 📁 **To add screenshots:** Create a `screenshots/` folder in the repo root and replace the code blocks above with standard markdown image syntax.
 
 ---
 
@@ -245,8 +234,7 @@ Replace this block with: ![Insights](screenshots/insights.png)
 | Platform | Link | Status |
 |----------|------|--------|
 | 🌐 Streamlit Cloud | [Launch Application](https://your-app-name.streamlit.app) | 🟡 Deploy & update link |
-| 📓 Google Colab | [Open Notebook](https://colab.research.google.com/your-notebook-link) | 🟡 Add notebook link |
-| 🐙 GitHub Repository | [View Source Code](https://github.com/your-username/customer-review-analytics) | ✅ Available |
+| 🐙 GitHub Repository | [View Source Code](https://github.com/rizwanahmed86508/customer-review-analytics) | ✅ Available |
 
 > 💡 **To deploy on Streamlit Cloud:** Push your repository to GitHub, visit [share.streamlit.io](https://share.streamlit.io), connect your repo, and set `sentiscope_app.py` as the entry point.
 
@@ -707,7 +695,7 @@ Negative Vocabulary (dominant terms):
 customer-review-analytics/
 │
 ├── 📓 customer-review-analytics-model.ipynb   ← Training notebook (EDA + ML pipeline)
-├── 🚀 sentiscope_app.py                        ← Main Streamlit application
+├── 🚀 app.py                                  ← Main Streamlit application
 │
 ├── 🧠 models/
 │   ├── sentiment_model.pkl                     ← Serialised Logistic Regression model
@@ -892,7 +880,7 @@ This project establishes a solid foundation for several promising research direc
 
 <div align="center">
 
-<img src="https://avatars.githubusercontent.com/your-username" width="120" style="border-radius:50%;"/>
+<img src="https://avatars.githubusercontent.com/rizwanahmed786508" width="120" style="border-radius:50%;"/>
 
 ### **Rizwan Ahmed**
 *Software Engineering Student · ML Engineer · Data Scientist*
