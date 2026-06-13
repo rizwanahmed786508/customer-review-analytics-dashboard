@@ -1,4 +1,4 @@
-<div align="center">
+
 
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
 <!--                          PROJECT BANNER                                   -->
@@ -137,9 +137,6 @@ This project addresses both challenges: **accurate automated sentiment classific
 
 ## 📸 Application Screenshots
 
-
-<div align="center">
-
 ### 🏠 Home — Project Overview Dashboard
  ![Home Page](screenshots/home.png)
 
@@ -165,8 +162,6 @@ This project addresses both challenges: **accurate automated sentiment classific
 
 ## 🚀 Live Demo
 
-<div align="center">
-
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.streamlit.app)
 
 | Platform | Link | Status |
@@ -176,7 +171,6 @@ This project addresses both challenges: **accurate automated sentiment classific
 
 > 💡 **To deploy on Streamlit Cloud:** Push your repository to GitHub, visit [share.streamlit.io](https://share.streamlit.io), connect your repo, and set `sentiscope_app.py` as the entry point.
 
-</div>
 
 ---
 
@@ -465,7 +459,6 @@ Run all cells sequentially. Model artefacts (`sentiment_model.pkl`, `tfidf_vecto
 
 ## 👤 Author
 
-<div align="center">
 
 <img src="https://avatars.githubusercontent.com/rizwanahmed786508" width="120" style="border-radius:50%;"/>
 
