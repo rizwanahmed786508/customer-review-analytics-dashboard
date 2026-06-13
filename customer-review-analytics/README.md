@@ -317,17 +317,7 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 
 ---
 
-## 📈 Feature Importance Analysis
 
-Logistic Regression's linear architecture enables direct extraction of model intelligence through its coefficient vector `model.coef_[0]` — a 5,000-dimensional array where each element represents the learned weight of the corresponding TF-IDF feature.
-
-### Interpretation Framework
-
-```
-coef[i] > 0  →  Token pushes prediction toward POSITIVE class
-coef[i] < 0  →  Token pushes prediction toward NEGATIVE class
-|coef[i]|    →  Magnitude of influence (larger = stronger signal)
-```
 
 ### Top Discriminative Features (from trained model)
 
@@ -367,68 +357,6 @@ coef[i] < 0  →  Token pushes prediction toward NEGATIVE class
 
 ---
 
-## 🔍 Explainability (XAI)
-
-This project implements **Coefficient-Based Explainability** — a mathematically rigorous, computationally efficient approach to local prediction explanation that requires no external explainability library (no SHAP, no LIME).
-
-### Method: Token Contribution Scoring
-
-For any input review, the contribution of each token to the model's final decision is computed as:
-
-$$\text{Contribution}_i = \text{TF-IDF Score}_i \times \text{LR Coefficient}_i$$
-
-Where:
-- **TF-IDF Score** = Term Frequency × Inverse Document Frequency (from `tfidf_vectorizer.pkl`)
-- **LR Coefficient** = Learned weight for token $i$ (from `model.coef_[0][i]`)
-
-### Why This Approach?
-
-| Property | Coefficient-Based XAI | SHAP | LIME |
-|----------|:---------------------:|:----:|:----:|
-| **Mathematically Exact** | ✅ Yes | ✅ Yes | ⚠️ Approximate |
-| **Computationally Efficient** | ✅ O(features) | ❌ O(2ⁿ) | ❌ Requires sampling |
-| **Python 3.14 Compatible** | ✅ Yes | ❌ No (inspect issue) | ⚠️ Sometimes |
-| **External Dependency** | ✅ None | ❌ shap package | ❌ lime package |
-| **Interpretable Output** | ✅ Per-token values | ✅ Per-feature values | ✅ Per-feature values |
-
-### Example Explanation Output
-
-```
-Review: "This film was absolutely wonderful and the acting was brilliant"
-
-Token           TF-IDF     LR Coef    Contribution   Direction
-──────────────────────────────────────────────────────────────
-wonderful       0.412      +2.155     +0.88786        → POSITIVE ✅
-brilliant       0.389      +2.209     +0.85930        → POSITIVE ✅
-acting          0.298      -0.505     -0.15049        → NEGATIVE ❌
-absolutely      0.256      -0.244     -0.06246        → NEGATIVE ❌
-──────────────────────────────────────────────────────────────
-Final Decision: POSITIVE 😊 | Confidence: 99.35%
-```
-
-**Business Value:** This level of transparency enables domain experts to audit predictions, identify edge cases, and build justified trust in the AI system — critical for regulated environments such as healthcare reviews, financial product feedback, or legal document sentiment.
-
----
-
-## 💡 NLP Insights
-
-### Word Clouds
-
-Vocabulary patterns in positive vs. negative reviews reveal linguistically distinct sentiment lexicons:
-
-```
-Positive Vocabulary (dominant terms):
-─────────────────────────────────────────────────────────
-  wonderful  ██████   superb   █████    masterpiece ████
-  brilliant  ██████   amazing  █████    heartwarming ████
-  beautiful  █████    stunning ████     memorable    ███
-
-Negative Vocabulary (dominant terms):
-─────────────────────────────────────────────────────────
-  awful      ██████   boring   ██████   terrible    █████
-  horrible   █████    waste    █████    dreadful    ████
-  pointless  ████     dull     ████     disappointing ███
-```
 
 ### Frequency Analysis — Top 10 Words
 
@@ -461,7 +389,7 @@ Negative Vocabulary (dominant terms):
 
 ## 📁 Project Structure
 
-
+```
 customer-review-analytics/
 │
 ├── 📓 customer-review-analytics-model.ipynb   ← Training notebook (EDA + ML pipeline)
@@ -485,8 +413,7 @@ customer-review-analytics/
 ├── 📋 requirements.txt                         ← Python dependencies
 ├── 📄 README.md                                ← This file
 └── ⚖️  LICENSE                                 ← MIT License
-
-
+```
 ## 💻 Installation Guide
 
 ### Prerequisites
@@ -550,12 +477,6 @@ The application will open automatically at `http://localhost:8501`
 3. Click **⚡ Analyse Sentiment**
 4. View the prediction label (Positive/Negative), confidence score, and preprocessed token preview
 
-### Exploring Explainability
-
-1. Navigate to **🔍 Explainability**
-2. Select a pre-loaded sample or choose **"Write custom review"**
-3. Click **🔍 Explain Prediction**
-4. Review the per-token contribution bar chart and detailed breakdown table
 
 ### Reproducing Training (Notebook)
 
