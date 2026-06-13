@@ -182,8 +182,6 @@ This project addresses both challenges: **accurate automated sentiment classific
 
 ## 📂 Dataset Description
 
-<div align="center">
-
 | Property | Value |
 |----------|-------|
 | **Dataset Name** | IMDb Large Movie Review Dataset |
@@ -197,7 +195,7 @@ This project addresses both challenges: **accurate automated sentiment classific
 | **Train Split** | 40,000 reviews (80%) |
 | **Test Split** | 10,000 reviews (20%) |
 
-</div>
+
 
 
 ---
@@ -221,7 +219,6 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 
 ## 📊 Model Performance
 
-<div align="center">
 
 ### Accuracy Comparison
 
@@ -239,7 +236,6 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 | Positive | 0.880 | 0.900 | 0.890 | 5,039 |
 | **Weighted Avg** | **0.890** | **0.890** | **0.890** | **10,000** |
 
-</div>
 
 > **Key Finding:** Logistic Regression achieves the highest generalisation performance despite having lower training accuracy than SVM and Random Forest — demonstrating superior regularisation and better calibration on balanced binary text classification tasks.
 
@@ -247,7 +243,6 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 
 ## 🔢 Confusion Matrix Analysis
 
-<div align="center">
 
 ### Logistic Regression — Confusion Matrix (10,000 Test Samples)
 
@@ -256,8 +251,6 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 | **Actual: Negative** | 4,339 ✅ TN | 622 ❌ FP |
 | **Actual: Positive** | 487 ❌ FN | 4,552 ✅ TP |
 
-</div>
-
 
 ---
 
@@ -265,7 +258,6 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 
 ### Top Discriminative Features (from trained model)
 
-<div align="center">
 
 **→ Positive Signal (Top 10)**
 
@@ -297,14 +289,13 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 | 9 | `unbearable` | −1.589 | ████████▌ |
 | 10 | `atrocious` | −1.501 | ████████ |
 
-</div>
 
 ---
 
 
 ### Frequency Analysis — Top 10 Words
 
-<div align="center">
+
 
 | Rank | Positive Reviews | Frequency | Negative Reviews | Frequency |
 |:----:|-----------------|:---------:|-----------------|:---------:|
@@ -457,7 +448,6 @@ Run all cells sequentially. Model artefacts (`sentiment_model.pkl`, `tfidf_vecto
 
 ## 🛠️ Skills Demonstrated
 
-<div align="center">
 
 | Category | Skills |
 |----------|--------|
@@ -470,7 +460,6 @@ Run all cells sequentially. Model artefacts (`sentiment_model.pkl`, `tfidf_vecto
 | **Web Application Development** | Multi-page Streamlit dashboard, responsive UI/UX, interactive widgets, professional theming |
 | **Research & Communication** | Technical documentation, academic writing, results interpretation, business insight generation |
 
-</div>
 
 ---
 
@@ -492,7 +481,7 @@ Run all cells sequentially. Model artefacts (`sentiment_model.pkl`, `tfidf_vecto
 *Actively seeking Master's scholarship opportunities in Data Science & AI*
 *Open to ML Engineering internships and research collaborations*
 
-</div>
+
 
 ---
 
