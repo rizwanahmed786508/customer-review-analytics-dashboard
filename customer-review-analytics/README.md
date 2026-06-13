@@ -191,39 +191,27 @@ This project addresses both challenges: **accurate automated sentiment classific
 <div align="center">
 
 ### 🏠 Home — Project Overview Dashboard
-```
-[ Screenshot: Home Page — Hero section, KPI cards, pipeline diagram ]
-Replace this block with: ![Home Page](screenshots/home.png)
-```
+ ![Home Page](screenshots/home.png)
 
 ### ✍️ Prediction — Live Sentiment Analysis
-```
- ![Prediction Page](images/prediction.png)
-```
+![Prediction Page](images/prediction.png)
+
 
 ### 📈 Feature Importance — LR Coefficient Analysis
-```
- ![Feature Importance](images/feature_importance.png)
-```
+![Feature Importance](images/feature_importance.png)
+
 
 ### 🔍 Explainability — Token-Level Contribution Analysis
-```
- ![Explainability](images/explainability.png)
-```
+![Explainability](images/explainability.png)
+
 
 ### 🤖 Model Performance — Evaluation Metrics
-```
- ![Model Performance](images/performance.png)
-```
+![Model Performance](images/performance.png)
+
 
 ### ☁️ Insights — Word Clouds & Frequency Analysis
-```
- ![Insights](images/insights.png)
-```
+`` ![Insights](images/insights.png)
 
-
-
----
 
 ## 🚀 Live Demo
 
@@ -262,94 +250,6 @@ Replace this block with: ![Home Page](screenshots/home.png)
 
 </div>
 
-### 📊 Data Distribution
-
-```
-Sentiment Distribution:
-────────────────────────────────────
-  Positive ████████████████████ 50%  (25,000 samples)
-  Negative ████████████████████ 50%  (25,000 samples)
-────────────────────────────────────
-  Total:   50,000 | Split: 80/20
-```
-
-> **Reference:** Maas, A. L., Daly, R. E., Pham, P. T., Huang, D., Ng, A. Y., & Potts, C. (2011). *Learning Word Vectors for Sentiment Analysis.* Proceedings of the 49th Annual Meeting of the ACL.
-
----
-
-## ⚙️ Data Preprocessing Pipeline
-
-The preprocessing pipeline is engineered without external NLP framework dependencies, ensuring compatibility across all Python versions (including 3.14+) while replicating the effectiveness of standard NLTK-based approaches.
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                     PREPROCESSING PIPELINE                              │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│  Raw Text Input                                                         │
-│       │                                                                 │
-│       ▼                                                                 │
-│  ① HTML Tag Removal       re.sub(r'<.*?>', ' ', text)                  │
-│       │                   → Strips <br>, <b>, <i>, etc.                │
-│       ▼                                                                 │
-│  ② Lowercasing            text.lower()                                  │
-│       │                   → Normalises case variation                   │
-│       ▼                                                                 │
-│  ③ Non-alpha Removal      re.sub(r'[^a-z ]', ' ', text)               │
-│       │                   → Removes punctuation, digits, symbols        │
-│       ▼                                                                 │
-│  ④ Stopword Filtering     [w for w in words if w not in STOPWORDS]     │
-│       │                   → 130+ common English stopwords removed       │
-│       ▼                                                                 │
-│  ⑤ Short Token Filter     [w for w in words if len(w) > 2]            │
-│       │                   → Removes noise tokens (e.g. 'br', 'ax')     │
-│       ▼                                                                 │
-│  Cleaned Token String → TF-IDF Vectorisation                           │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-**Key Design Decision:** Standard NLTK WordNetLemmatizer was replaced with a zero-dependency stopword filter after empirical validation confirmed equivalent predictive performance. This eliminates `inspect.formatargspec` compatibility issues on Python 3.11+ while maintaining 88.93% classification accuracy.
-
----
-
-## 🔁 Machine Learning Pipeline
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                    END-TO-END ML PIPELINE                               │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│  Preprocessed Text Corpus (50,000 samples)                             │
-│       │                                                                 │
-│       ▼                                                                 │
-│  Train / Test Split  ──────────────────────────────                    │
-│  • Train: 40,000 (80%)           Test: 10,000 (20%)                    │
-│  • random_state=42  (reproducible)                                     │
-│       │                                                                 │
-│       ▼                                                                 │
-│  TF-IDF Vectorisation                                                   │
-│  • TfidfVectorizer(max_features=5000)                                  │
-│  • Fit on train set only  →  transform both splits                     │
-│  • Output: Sparse matrix  (40000 × 5000)                               │
-│       │                                                                 │
-│       ▼                                                                 │
-│  ┌────────────┐   ┌────────────────┐   ┌───────────────┐              │
-│  │ Logistic   │   │ Support Vector │   │ Random Forest │              │
-│  │ Regression │   │ Machine (SVM)  │   │  Classifier   │              │
-│  └─────┬──────┘   └──────┬─────────┘   └──────┬────────┘              │
-│        └─────────────────┼──────────────────────┘                     │
-│                          ▼                                              │
-│  Model Evaluation                                                       │
-│  • Accuracy Score    • Confusion Matrix                                │
-│  • Classification Report (Precision, Recall, F1)                       │
-│  • Feature Importance (Coefficients / Feature Weights)                 │
-│       │                                                                 │
-│       ▼                                                                 │
-│  Model Serialisation → sentiment_model.pkl + tfidf_vectorizer.pkl     │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
 
 ---
 
@@ -357,9 +257,6 @@ The preprocessing pipeline is engineered without external NLP framework dependen
 
 ### 1. Logistic Regression ⭐ *(Best Model)*
 
-```python
-LogisticRegression(max_iter=1000, solver='lbfgs', C=1.0)
-```
 
 Logistic Regression serves as the primary model due to its exceptional balance of performance, interpretability, and computational efficiency on high-dimensional sparse text data. The model's linear decision boundary, parameterised by learnable coefficients for each TF-IDF feature, enables direct extraction of per-token importance — making it the foundation of this project's Explainable AI capability.
 
@@ -369,21 +266,12 @@ Logistic Regression serves as the primary model due to its exceptional balance o
 
 ### 2. Support Vector Machine (LinearSVC)
 
-```python
-LinearSVC(max_iter=2000, C=1.0)
-```
 
 Linear Support Vector Classification finds the maximum-margin hyperplane separating positive and negative classes in the TF-IDF feature space. The dual optimisation formulation makes it computationally efficient for large sparse matrices. While highly competitive in accuracy, it lacks native probability calibration, making Logistic Regression preferable for confidence-scored predictions.
 
 ---
 
-### 3. Random Forest Classifier
 
-```python
-RandomForestClassifier(n_estimators=100, max_depth=None, random_state=42)
-```
-
-Random Forest provides an ensemble-based baseline that operates on a bootstrapped subset of features at each split. While generally robust across feature types, Random Forest underperforms linear models on TF-IDF representations due to the difficulty of partitioning high-dimensional sparse spaces with axis-aligned decision boundaries. Included for rigorous comparative analysis.
 
 ---
 
@@ -397,7 +285,7 @@ Random Forest provides an ensemble-based baseline that operates on a bootstrappe
 |-------|:--------------:|:-------------:|:--------:|:---------:|:------:|
 | 🥇 **Logistic Regression** | 96.2% | **88.93%** | **0.889** | **0.890** | **0.889** |
 | 🥈 **SVM (LinearSVC)** | 97.8% | 88.18% | 0.882 | 0.883 | 0.882 |
-| 🥉 **Random Forest** | 99.1% | 84.62% | 0.846 | 0.847 | 0.846 |
+
 
 ### Per-Class Performance — Logistic Regression
 
@@ -426,22 +314,6 @@ Random Forest provides an ensemble-based baseline that operates on a bootstrappe
 
 </div>
 
-```
-Interpretation:
-─────────────────────────────────────────────────────────────────
-  True Positives  (TP): 4,552  →  Correct Positive predictions
-  True Negatives  (TN): 4,339  →  Correct Negative predictions
-  False Positives (FP):   622  →  Negative reviews → Predicted Positive
-  False Negatives (FN):   487  →  Positive reviews → Predicted Negative
-
-  Error Analysis:
-  • FP Rate: 622 / 4,961  = 12.5%  (Type I Error)
-  • FN Rate: 487 / 5,039  = 9.7%   (Type II Error)
-  • Overall Error Rate:    11.1%
-─────────────────────────────────────────────────────────────────
-```
-
-The lower False Negative rate (9.7% vs 12.5% FP) indicates the model has a slight bias toward predicting Positive sentiment — expected given the prevalence of affirmative language patterns that TF-IDF captures strongly.
 
 ---
 
@@ -586,112 +458,10 @@ Negative Vocabulary (dominant terms):
 
 ---
 
-## 🏗️ Project Architecture & Workflow
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        SYSTEM ARCHITECTURE                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│   DATA LAYER                                                                │
-│   ┌──────────────────────────────────────────────────────────────────────┐ │
-│   │  IMDb Dataset (50K)  →  Raw .txt files  →  Pandas DataFrame         │ │
-│   └──────────────────────────────────────────────────────────────────────┘ │
-│                           │                                                 │
-│   PREPROCESSING LAYER     ▼                                                 │
-│   ┌──────────────────────────────────────────────────────────────────────┐ │
-│   │  HTML Strip  →  Lowercase  →  Alpha Filter  →  Stopword Removal     │ │
-│   └──────────────────────────────────────────────────────────────────────┘ │
-│                           │                                                 │
-│   FEATURE ENGINEERING     ▼                                                 │
-│   ┌──────────────────────────────────────────────────────────────────────┐ │
-│   │  TfidfVectorizer(max_features=5000)  →  Sparse Matrix (N×5000)     │ │
-│   └──────────────────────────────────────────────────────────────────────┘ │
-│                           │                                                 │
-│   MODEL LAYER             ▼                                                 │
-│   ┌────────────────┐  ┌──────────────────┐  ┌─────────────────────────┐  │
-│   │ Logistic Reg.  │  │  LinearSVC (SVM) │  │  RandomForestClassifier │  │
-│   │  88.93% ⭐     │  │    88.18%        │  │       84.62%            │  │
-│   └────────────────┘  └──────────────────┘  └─────────────────────────┘  │
-│                           │                                                 │
-│   SERIALISATION           ▼                                                 │
-│   ┌──────────────────────────────────────────────────────────────────────┐ │
-│   │  sentiment_model.pkl   +   tfidf_vectorizer.pkl   (joblib)          │ │
-│   └──────────────────────────────────────────────────────────────────────┘ │
-│                           │                                                 │
-│   PRESENTATION LAYER      ▼                                                 │
-│   ┌──────────────────────────────────────────────────────────────────────┐ │
-│   │                   Streamlit Dashboard                                │ │
-│   │   Home │ Prediction │ Dataset │ Performance │ Features │ XAI │ NLP  │ │
-│   └──────────────────────────────────────────────────────────────────────┘ │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 📋 Streamlit Dashboard Pages
-
-<table>
-<thead>
-<tr>
-<th>Page</th>
-<th>Icon</th>
-<th>Contents</th>
-<th>Audience Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>Home</b></td>
-<td>🏠</td>
-<td>Project hero, KPI cards (50K dataset, 88.93% accuracy, 5K features), NLP pipeline diagram, tech stack</td>
-<td>Project overview for all audiences</td>
-</tr>
-<tr>
-<td><b>Prediction</b></td>
-<td>✍️</td>
-<td>Live text input, real-time sentiment prediction, confidence score, confidence bar, token preview</td>
-<td>Demonstrates production-readiness</td>
-</tr>
-<tr>
-<td><b>Dataset Analysis</b></td>
-<td>📊</td>
-<td>Sentiment distribution pie chart, class count bar chart, dataset schema, train/test split visual</td>
-<td>Data science rigour evidence</td>
-</tr>
-<tr>
-<td><b>Model Performance</b></td>
-<td>🤖</td>
-<td>Accuracy comparison bar chart, confusion matrix, full classification report table, TP/TN/FP/FN KPIs</td>
-<td>Technical evaluation depth</td>
-</tr>
-<tr>
-<td><b>Feature Importance</b></td>
-<td>📈</td>
-<td>Interactive N-slider, positive/negative coefficient bars, combined dual-direction chart, feature table</td>
-<td>Model interpretability</td>
-</tr>
-<tr>
-<td><b>Explainability</b></td>
-<td>🔍</td>
-<td>Sample/custom review selector, per-token contribution chart, direction table, confidence result</td>
-<td>XAI / trustworthy AI</td>
-</tr>
-<tr>
-<td><b>Insights</b></td>
-<td>☁️</td>
-<td>Positive word cloud (green), negative word cloud (red), top-10 frequency bar charts, NLP findings</td>
-<td>Business intelligence value</td>
-</tr>
-</tbody>
-</table>
-
----
 
 ## 📁 Project Structure
 
-```
+
 customer-review-analytics/
 │
 ├── 📓 customer-review-analytics-model.ipynb   ← Training notebook (EDA + ML pipeline)
@@ -715,9 +485,7 @@ customer-review-analytics/
 ├── 📋 requirements.txt                         ← Python dependencies
 ├── 📄 README.md                                ← This file
 └── ⚖️  LICENSE                                 ← MIT License
-```
 
----
 
 ## 💻 Installation Guide
 
@@ -900,7 +668,7 @@ This project establishes a solid foundation for several promising research direc
 
 ## 📄 License
 
-```
+
 MIT License
 
 Copyright (c) 2024 Rizwan Ahmed
@@ -918,17 +686,10 @@ copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-```
+
 
 See [LICENSE](LICENSE) for full text.
 
----
-
-<div align="center">
-
-## ⭐ If this project helped you, please star the repository!
-
-*It motivates continued development and helps others discover the project.*
 
 <br/>
 
