@@ -160,7 +160,7 @@ This project addresses both challenges: **accurate automated sentiment classific
 | Platform | Link | Status |
 |----------|------|--------|
 | 🌐 Streamlit Cloud | [Live Demo](https://your-app-name.streamlit.app) | ✅ Available  |
-| 🐙 GitHub Repository | [View Source Code](https://github.com/rizwanahmed86508/customer-review-analytics) | ✅ Available |
+| 🐙 GitHub Repository | [View Source Code](https://github.com/rizwanahmed786508/customer-review-analytics) | ✅ Available |
 
 ---
 
