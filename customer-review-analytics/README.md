@@ -357,28 +357,6 @@ streamlit run app.py
 
 ---
  
-> ⚠️ If the `.pkl` files are missing, run the training notebook first — see **Step 6** below.
- 
-### Step 5 — Launch the Dashboard
- 
-```bash
-streamlit run sentiscope_app.py
-```
- 
-The app opens automatically at → **`http://localhost:8501`**
- 
-### Step 6 — (Optional) Retrain the Model
- 
-To reproduce the full training pipeline from scratch:
- 
-```bash
-jupyter notebook customer-review-analytics-model.ipynb
-```
- 
-Run all cells sequentially. Model artefacts (`sentiment_model.pkl`, `tfidf_vectorizer.pkl`) are saved automatically via `joblib.dump()`.
- 
----
- 
 ## 📖 Usage Guide
  
 ### ✍️ Running a Live Prediction
