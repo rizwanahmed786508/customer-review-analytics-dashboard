@@ -138,7 +138,7 @@ This project addresses both challenges: **accurate automated sentiment classific
 ## 📸 Application Screenshots
 
 ### 🏠 Home — Project Overview Dashboard
- ![Home Page](screenshots/home.png)
+ ![Home Page](images/home.png)
 
 ### ✍️ Prediction — Live Sentiment Analysis
 ![Prediction Page](images/prediction.png)
@@ -148,16 +148,10 @@ This project addresses both challenges: **accurate automated sentiment classific
 ![Feature Importance](images/feature_importance.png)
 
 
-### 🔍 Explainability — Token-Level Contribution Analysis
+### ☁️ Insights — Word Clouds & Frequency Analysis
 ![Explainability](images/explainability.png)
 
 
-### 🤖 Model Performance — Evaluation Metrics
-![Model Performance](images/performance.png)
-
-
-### ☁️ Insights — Word Clouds & Frequency Analysis
-`` ![Insights](images/insights.png)
 
 
 ## 🚀 Live Demo
