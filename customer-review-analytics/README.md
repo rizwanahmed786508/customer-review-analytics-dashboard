@@ -57,41 +57,6 @@
 
 <br/>
 
-## 📑 Table of Contents
-
-<details>
-<summary><b>Click to expand full table of contents</b></summary>
-
-- [Project Overview](#-project-overview)
-- [Problem Statement](#-problem-statement)
-- [Objectives](#-objectives)
-- [Key Features](#-key-features)
-- [Application Screenshots](#-application-screenshots)
-- [Live Demo](#-live-demo)
-- [Dataset Description](#-dataset-description)
-- [Data Preprocessing Pipeline](#-data-preprocessing-pipeline)
-- [Machine Learning Pipeline](#-machine-learning-pipeline)
-- [Models Used](#-models-used)
-- [Model Performance](#-model-performance)
-- [Confusion Matrix Analysis](#-confusion-matrix-analysis)
-- [Feature Importance Analysis](#-feature-importance-analysis)
-- [Explainability (XAI)](#-explainability-xai)
-- [NLP Insights](#-nlp-insights)
-- [Project Architecture](#-project-architecture--workflow)
-- [Dashboard Pages](#-streamlit-dashboard-pages)
-- [Project Structure](#-project-structure)
-- [Installation Guide](#-installation-guide)
-- [Usage Guide](#-usage-guide)
-- [Requirements](#-requirements)
-- [Future Improvements](#-future-improvements)
-- [Research Potential](#-research-potential)
-- [Skills Demonstrated](#-skills-demonstrated)
-- [Author](#-author)
-- [License](#-license)
-
-</details>
-
----
 
 ## 🔬 Project Overview
 
@@ -237,7 +202,6 @@ This project addresses both challenges: **accurate automated sentiment classific
 | Property | Value |
 |----------|-------|
 | **Dataset Name** | IMDb Large Movie Review Dataset |
-| **Source** | Stanford AI Lab — [Maas et al., 2011](https://ai.stanford.edu/~amaas/data/sentiment/) |
 | **Total Samples** | 50,000 labelled reviews |
 | **Positive Reviews** | 25,000 (50%) |
 | **Negative Reviews** | 25,000 (50%) |
@@ -269,11 +233,6 @@ Logistic Regression serves as the primary model due to its exceptional balance o
 
 Linear Support Vector Classification finds the maximum-margin hyperplane separating positive and negative classes in the TF-IDF feature space. The dual optimisation formulation makes it computationally efficient for large sparse matrices. While highly competitive in accuracy, it lacks native probability calibration, making Logistic Regression preferable for confidence-scored predictions.
 
----
-
-
-
----
 
 ## 📊 Model Performance
 
@@ -377,139 +336,54 @@ Linear Support Vector Classification finds the maximum-margin hyperplane separat
 
 </div>
 
-### Key NLP Findings
 
-- **Sentiment Lexicon Separation:** Positive and negative reviews exhibit largely non-overlapping vocabulary, validating TF-IDF's discriminative power
-- **Adjectival Dominance:** Sentiment-bearing adjectives (`wonderful`, `awful`) receive high IDF weights, disproportionately influencing classification
-- **Neutral Shared Terms:** Both classes share terms like `film`, `movie`, `story` — TF-IDF's document frequency weighting correctly down-weights these
-- **Negation Challenge:** Phrases like "not bad" remain a preprocessing limitation — addressed in future improvements via n-gram features
+## 📂 Project Structure
+
+```text
+customer-review-analytics/
+│
+├── app.py
+├── customer-review-analytics-model
+├
+├── requirements.txt
+├── README.md
+│
+├── data/
+│   └── dataset.csv
+│
+├── images/
+│   ├── dashboard.png
+│   ├── confusion_matrix.png
+│   └── feature_importance.png
+│
+└── models/
+    └── credit_score.pkl
+```
 
 ---
 
+## 🚀 Installation & Usage
 
-## 📁 Project Structure
-
-```
-customer-review-analytics/
-│
-├── 📓 customer-review-analytics-model.ipynb   ← Training notebook (EDA + ML pipeline)
-├── 🚀 app.py                                  ← Main Streamlit application
-│
-├── 🧠 models/
-│   ├── sentiment_model.pkl                     ← Serialised Logistic Regression model
-│   └── tfidf_vectorizer.pkl                    ← Fitted TF-IDF vectoriser
-│
-├── 📸 screenshots/                             ← Dashboard screenshots (add yours here)
-│   ├── home.png
-│   ├── prediction.png
-│   ├── feature_importance.png
-│   ├── explainability.png
-│   ├── performance.png
-│   └── insights.png
-│
-├── 📊 data/                                    ← Dataset (download separately)
-│   └── imdb_dataset.csv                        ← 50K reviews + labels
-│
-├── 📋 requirements.txt                         ← Python dependencies
-├── 📄 README.md                                ← This file
-└── ⚖️  LICENSE                                 ← MIT License
-```
-## 💻 Installation Guide
-
-### Prerequisites
+### Clone Repository
 
 ```bash
-Python >= 3.8   (tested up to Python 3.14)
-pip >= 21.0
+git clone https://github.com/rizwanahmed786508/credit-scoring-system.git
+cd credit-scoring-system
 ```
 
-### Step 1 — Clone the Repository
-
-```bash
-git clone https://github.com/your-username/customer-review-analytics.git
-cd customer-review-analytics
-```
-
-### Step 2 — Create Virtual Environment *(Recommended)*
-
-```bash
-# Windows
-python -m venv venv
-venv\Scripts\activate
-
-# macOS / Linux
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Step 3 — Install Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4 — Verify Model Files
-
-Ensure both model artefacts are present in the project root (or a `models/` subfolder):
+### Run Streamlit App
 
 ```bash
-ls *.pkl
-# Expected output:
-# sentiment_model.pkl   tfidf_vectorizer.pkl
-```
-
-### Step 5 — Launch Dashboard
-
-```bash
-streamlit run sentiscope_app.py
-```
-
-The application will open automatically at `http://localhost:8501`
-
----
-
-## 📖 Usage Guide
-
-### Running Live Predictions
-
-1. Navigate to the **✍️ Prediction** page in the sidebar
-2. Paste or type any movie review in the text area
-3. Click **⚡ Analyse Sentiment**
-4. View the prediction label (Positive/Negative), confidence score, and preprocessed token preview
-
-
-### Reproducing Training (Notebook)
-
-```bash
-jupyter notebook customer-review-analytics-model.ipynb
-```
-
-Run all cells sequentially to reproduce the full preprocessing, training, and evaluation pipeline. Model artefacts are saved automatically via `joblib.dump()`.
-
----
-
-## 📦 Requirements
-
-```txt
-streamlit>=1.28.0
-scikit-learn>=1.2.0
-pandas>=1.5.0
-numpy>=1.23.0
-matplotlib>=3.6.0
-wordcloud>=1.9.0
-joblib>=1.2.0
-```
-
-> ✅ **Zero NLTK dependency** — preprocessing is implemented using Python's built-in `re` module and a curated stopword list, ensuring compatibility with Python 3.14 and beyond.
-
-Install all dependencies at once:
-
-```bash
-pip install streamlit scikit-learn pandas numpy matplotlib wordcloud joblib
+streamlit run app.py
 ```
 
 ---
-
 ## 🔮 Future Improvements
 
 | Priority | Enhancement | Technical Approach |
@@ -523,28 +397,7 @@ pip install streamlit scikit-learn pandas numpy matplotlib wordcloud joblib
 | 🟢 Low | **REST API Deployment** | Wrap model in FastAPI endpoint for programmatic access |
 | 🟢 Low | **Active Learning Loop** | User feedback integration to continuously improve model on edge cases |
 
----
 
-## 🎓 Research Potential
-
-This project establishes a solid foundation for several promising research directions:
-
-**1. Comparative Explainability Study**
-> Compare coefficient-based XAI, SHAP, LIME, and attention-based explanation for sentiment analysis — evaluating faithfulness, stability, and computational cost across methods.
-
-**2. Domain Adaptation Analysis**
-> Investigate transfer learning efficacy when applying an IMDb-trained sentiment model to product reviews (Amazon), restaurant reviews (Yelp), or social media (Twitter/X).
-
-**3. Linguistic Feature Engineering**
-> Systematic ablation study comparing Bag-of-Words, TF-IDF (unigram, bigram, trigram), Word2Vec, GloVe, and FastText representations on binary sentiment classification.
-
-**4. Bias and Fairness in Sentiment Systems**
-> Analyse whether sentiment models exhibit systematic bias toward certain genres, time periods, or author demographics in the IMDb dataset.
-
-**5. Human-AI Collaboration for Content Moderation**
-> Design and evaluate a human-in-the-loop sentiment labelling workflow where the XAI system guides annotator attention to high-contribution tokens.
-
----
 
 ## 🛠️ Skills Demonstrated
 
