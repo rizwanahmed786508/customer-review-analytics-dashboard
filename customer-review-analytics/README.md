@@ -156,11 +156,10 @@ This project addresses both challenges: **accurate automated sentiment classific
 
 ## 🚀 Live Demo
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.streamlit.app)
 
 | Platform | Link | Status |
 |----------|------|--------|
-| 🌐 Streamlit Cloud | [Launch Application](https://your-app-name.streamlit.app) | 🟡 Deploy & update link |
+| 🌐 Streamlit Cloud | [Launch Application](https://your-app-name.streamlit.app) | ✅ Available  |
 | 🐙 GitHub Repository | [View Source Code](https://github.com/rizwanahmed86508/customer-review-analytics) | ✅ Available |
 
 ---
@@ -309,13 +308,12 @@ customer-review-analytics/
 │   ├── sentiment_model.pkl                     ← Serialised Logistic Regression model
 │   └── tfidf_vectorizer.pkl                    ← Fitted TF-IDF vectoriser
 │
-├── 📸 screenshots/                             ← Dashboard screenshots
+├── 📸 images/                                  ← Dashboard screenshots
 │   ├── home.png
 │   ├── prediction.png
 │   ├── feature_importance.png
 │   ├── explainability.png
-│   ├── performance.png
-│   └── insights.png
+│   
 │
 ├── 📊 data/
 │   └── imdb_dataset.csv                        ← 50,000 IMDb reviews + labels
